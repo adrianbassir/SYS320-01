@@ -77,7 +77,7 @@ function listAtRiskUsers {
     # Group failed logins by user and filter those with more than 10 occurrences
     $atRiskUsers = $failedLogins |
                    Group-Object -Property User |
-                   Where-Object { $_.Count -gt 10 } |
+                   Where-Object { $_.Count -gt 4 } |
                    Select-Object @{Name='User'; Expression={ $_.Name }},
                                   @{Name='FailedAttempts'; Expression={ $_.Count }}
 
